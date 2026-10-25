@@ -75,9 +75,26 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 | UI wording: today's Telegram commands | frontend | checked | d900572 |
 | Merge `frontend` into main; retire the frontend worker | coordinator | checked | f1e7f31 |
 
-## Phases 6–8
+## Phase 6: Install like a product
 
-Not started. Broken into tasks when Phase 5 is checked.
+| Task | Owner | Status | Commit |
+|---|---|---|---|
+| Release build: UI into the wheel; CI builds UI + wheel | harness | sent | |
+| `uv tool install` / `pipx install` proven in a throwaway tool dir | harness | sent | |
+| `local-agent onboard` (model, keys, Telegram, workspace, service) | harness | sent | |
+| `daemon start/stop/status/logs`, launchd and systemd user service | harness | sent | |
+| `local-agent doctor`, `local-agent update` | harness | sent | |
+| Real 5-minute check: nothing to a Telegram reply (needs owner's key and bot) | owner | todo | |
+
+## Phases 7–8
+
+Not started. Broken into tasks when Phase 6 is checked.
+
+## Tooling
+
+| Task | Owner | Status | Commit |
+|---|---|---|---|
+| Agent dashboard (~/Projects/agent-dashboard) | dashboard | todo (waiting on folder trust) | |
 
 ## Ideas (not scheduled)
 
