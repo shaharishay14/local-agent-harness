@@ -68,8 +68,8 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 | Scheduler firing schedules unattended; notify tool; background distill | harness | checked | b75a72b |
 | Telegram (fake in tests): pairing, strangers third-party, approval buttons | harness | checked | b75a72b, 354a4b3 |
 | Web UI in frontend/: chat, approvals, runs inspector, memory, skills, schedules, apps | frontend | checked | 446c2d7 |
-| API contract v1.1: approvals status=all, run_id on messages, doc fixes | harness | sent | |
-| UI: switch to v1.1 | frontend | todo | |
+| API contract v1.1: approvals status=all, run_id on messages, doc fixes | harness | checked | 85f50cb |
+| UI: switch to v1.1 | frontend | sent | |
 | Live check: UI served by the daemon against the real API | coordinator | todo | |
 | Merge `frontend` into main | coordinator | todo | |
 
