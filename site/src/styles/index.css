@@ -22,7 +22,10 @@
   --sky-font-accent: 'Instrument Serif', Georgia, serif;
   --sky-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   --sky-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
-  --sky-photo: url('../assets/sky-clouds.webp');
+  /* Hero photo: 1600px (48 kB) for 1x screens, the full 2880px (177 kB) for retina. */
+  --sky-photo: image-set(url('../assets/sky-clouds-1600.webp') 1x, url('../assets/sky-clouds-2880.webp') 2x);
+  /* Blurred backdrops never need more than the small copy. */
+  --sky-photo-soft: url('../assets/sky-clouds-1600.webp');
 }
 
 html {
@@ -295,7 +298,7 @@ a {
   position: absolute;
   inset: -40px;
   z-index: -2;
-  background: var(--sky-photo) center/cover;
+  background: var(--sky-photo-soft) center/cover;
   filter: blur(18px) saturate(1.1);
 }
 .s-photo-blur::after {
@@ -1013,7 +1016,7 @@ a {
   content: '';
   position: absolute;
   inset: -30px;
-  background: var(--sky-dusk) var(--sky-photo) center/cover;
+  background: var(--sky-dusk) var(--sky-photo-soft) center/cover;
   filter: blur(14px) saturate(1.15);
 }
 .s-cta-in {
