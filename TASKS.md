@@ -59,9 +59,20 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 | Skills appear when a server provides what they need | harness | checked | 5763ade, ddcc7aa |
 | End to end with a fake Gmail server; docs/mcp.md | harness | checked | ddcc7aa, 85743d6 |
 
-## Phases 5–8
+## Phase 5: The daemon
 
-Not started. Broken into tasks when Phase 4 is checked.
+| Task | Owner | Status | Commit |
+|---|---|---|---|
+| API contract, docs/api.md (first, forwarded to frontend) | harness | sent | |
+| `local-agent daemon`: API on 127.0.0.1 with token, Origin and Host checks | harness | sent | |
+| Scheduler firing schedules unattended; notify tool; background distill | harness | sent | |
+| Telegram (fake in tests): pairing, strangers third-party, approval buttons | harness | sent | |
+| Web UI in frontend/: chat, approvals, runs inspector, memory, skills, schedules, apps | frontend | sent | |
+| Merge `frontend` into main | coordinator | todo | |
+
+## Phases 6–8
+
+Not started. Broken into tasks when Phase 5 is checked.
 
 ## Ideas (not scheduled)
 
