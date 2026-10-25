@@ -38,9 +38,20 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 | From Phase 1: compaction, inspector, record_runs, run tests on real `run()` | harness | checked | 6a2bb9d |
 | Docs and README for Phase 2 | harness | checked | 9ef1792 |
 
-## Phases 3–8
+## Phase 3: Built-in tools
 
-Not started. Broken into tasks when Phase 2 is checked.
+| Task | Owner | Status | Commit |
+|---|---|---|---|
+| LiteLLM as a core dependency (owner decision) | harness | sent | |
+| Workspace files, confined to workspace/files/ | harness | sent | |
+| Shell: off by default, approval per command, never unattended | harness | sent | |
+| Web fetch through the egress guard (loopback + LAN blocked), web search (SerpAPI) | harness | sent | |
+| Schedules and reminders: tool, store, due(), `schedules list/rm` | harness | sent | |
+| Security tests and docs notes | harness | sent | |
+
+## Phases 4–8
+
+Not started. Broken into tasks when Phase 3 is checked.
 
 ## Ideas (not scheduled)
 
