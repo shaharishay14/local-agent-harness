@@ -182,6 +182,8 @@ Linux), README, LICENSE.
 - MCP tools annotated destructive: always ask, can't be always-allowed, never run unattended.
 - Decide whether third-party tool descriptions in the context should taint the run (today they are
   capped and neutralized, not tainting).
+- Make between-run events visible to the owner (compaction, distill, `telegram_ignored`): today they are
+  only in the store, with no API endpoint or command that shows them.
 - `local-agent audit`: checks the live config against the rules (API bound to loopback, token set, shell off or
   approved, file permissions on `~/.local-agent`).
 
