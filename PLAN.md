@@ -86,11 +86,11 @@ src/local_agent/
   skills/      registry, tools, library/ (starter pack)
   tools/       files, shell, web, schedule, notify
   mcp/         server config, client, catalog for discovery, gate tiers
-  providers/   model config: openai, anthropic, ollama
+  providers.py model config: openai, anthropic (LiteLLM), ollama / OpenAI-compatible
   channels/    terminal, telegram
   daemon/      app, API, scheduler, service install (launchd, systemd)
   run.py       one run: build context, run the loop, log, deliver
-  cli.py       onboard, doctor, chat, daemon, mcp, skills, runs, audit
+  cli.py       onboard, doctor, chat, daemon, mcp, skills, runs, key, audit
 frontend/      React UI
 evals/         golden tasks, fake MCP world
 docs/          design notes
@@ -119,6 +119,9 @@ Linux), README, LICENSE.
 - `local-agent chat`: chat in the terminal, approvals as a y/n prompt.
 - Carried from Phase 1: compaction, the inspector (for `runs show`), `record_runs`, and switching the
   scripted run tests from the test stand-in to the real `run()`.
+- As built: `local-agent key set <provider>` puts a key in the keychain until `onboard` exists. Distill
+  runs at the end of a terminal session; the background version comes with the daemon (Phase 5).
+  Distill and compaction tokens don't count toward the daily budget yet.
 - Done when: "I prefer short replies", quit, start again, and the preference holds; `local-agent runs show <id>`
   prints the timeline.
 

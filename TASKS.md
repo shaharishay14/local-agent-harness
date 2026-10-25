@@ -10,7 +10,7 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 | Landing page: build | site | checked | ef41bee |
 | Landing page: smaller hero photo | site | checked | 2cd4766 |
 | Merge `site` into `main` | coordinator | checked | 65a80c7 |
-| CI job: build + lint site/ | harness | sent | |
+| CI job: build + lint site/ | harness | checked | cc0276e |
 
 ## Phase 0: Skeleton
 
@@ -30,12 +30,13 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 
 | Task | Owner | Status | Commit |
 |---|---|---|---|
-| config.toml, providers (OpenAI, Anthropic, Ollama), keychain | harness | sent | |
-| `run()`: context, loop, stop rules, event log | harness | sent | |
-| Memory as markdown files, distill | harness | sent | |
-| Skills: starter pack, `skill_load`, adjustments | harness | sent | |
-| `local-agent chat`, `local-agent runs show` | harness | sent | |
-| From Phase 1: compaction, inspector, record_runs, run tests on real `run()` | harness | sent | |
+| config.toml, providers (OpenAI, Anthropic, Ollama), keychain | harness | checked | 6a2bb9d |
+| `run()`: context, loop, stop rules, event log | harness | checked | 4b9f783, 6a2bb9d |
+| Memory as markdown files, distill | harness | checked | 60fa2c6 |
+| Skills: starter pack, `skill_load`, adjustments | harness | checked | 60fa2c6, 6a2bb9d |
+| `local-agent chat`, `local-agent runs show` | harness | checked | 6a2bb9d |
+| From Phase 1: compaction, inspector, record_runs, run tests on real `run()` | harness | checked | 6a2bb9d |
+| Docs and README for Phase 2 | harness | checked | 9ef1792 |
 
 ## Phases 3–8
 
