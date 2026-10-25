@@ -21,8 +21,9 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 
 | Task | Owner | Status | Commit |
 |---|---|---|---|
-| Port harness modules and the gate; `Store` interface + SQLite | harness | sent | |
-| Port tests: unit, scripted SDK runs, replay | harness | sent | |
+| Port harness modules and the gate; `Store` interface + SQLite | harness | checked | 097f91b |
+| Port tests: unit, scripted SDK runs, replay | harness | checked | 097f91b |
+| Design notes in docs/ | harness | checked | fbca3f3 |
 
 ## Phase 2: First conversation in the terminal
 
@@ -33,6 +34,7 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 | Memory as markdown files, distill | harness | todo | |
 | Skills: starter pack, `skill_load`, adjustments | harness | todo | |
 | `local-agent chat`, `local-agent runs show` | harness | todo | |
+| From Phase 1: compaction, inspector, record_runs, run tests on real `run()` | harness | todo | |
 
 ## Phases 3–8
 

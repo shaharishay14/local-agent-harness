@@ -107,6 +107,9 @@ Linux), README, LICENSE.
 - Port the harness modules and the gate. Replace the ORM with a `Store` interface and a SQLite version.
 - Port their tests: unit, scripted runs through the real SDK loop, replay of recorded runs.
 - Done when: the ported tests pass and nothing imports Django.
+- As built: run tests go through a stand-in for `run()` in `tests/scripted.py`. Compaction, the inspector,
+  `record_runs` and the tests that need `run()` were deferred to Phase 2. Budgets: one optional daily
+  token budget for the machine, off by default, plus per-run limits.
 
 **Phase 2: First conversation in the terminal.**
 - `config.toml`, model providers (OpenAI, Anthropic, Ollama), keys in the keychain.
@@ -114,6 +117,8 @@ Linux), README, LICENSE.
 - Memory as markdown files (search, read, append, write; distill after a conversation).
 - Skills: the starter pack, `skill_load`, adjustments.
 - `local-agent chat`: chat in the terminal, approvals as a y/n prompt.
+- Carried from Phase 1: compaction, the inspector (for `runs show`), `record_runs`, and switching the
+  scripted run tests from the test stand-in to the real `run()`.
 - Done when: "I prefer short replies", quit, start again, and the preference holds; `local-agent runs show <id>`
   prints the timeline.
 
