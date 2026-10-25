@@ -63,7 +63,7 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 
 | Task | Owner | Status | Commit |
 |---|---|---|---|
-| API contract, docs/api.md (first, forwarded to frontend) | harness | sent | |
+| API contract, docs/api.md (first, forwarded to frontend) | harness | checked | c010e5d |
 | `local-agent daemon`: API on 127.0.0.1 with token, Origin and Host checks | harness | sent | |
 | Scheduler firing schedules unattended; notify tool; background distill | harness | sent | |
 | Telegram (fake in tests): pairing, strangers third-party, approval buttons | harness | sent | |
