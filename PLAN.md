@@ -144,6 +144,11 @@ Linux), README, LICENSE.
   "always allow". MCP output is third-party content, so taint tracking applies.
 - Skills declare what they need ("email", "calendar") and appear once a matching server is connected.
 - Done when: with a Gmail MCP server added, the morning brief appears and runs.
+- As built: MCP tools are named SERVER_TOOL (e.g. GMAIL_SEND_EMAIL). Tiers come from the read-only
+  annotation; "always allow" is a pre-approval that still asks (or refuses unattended) when a recipient
+  came from third-party content. `mcp add --provides email,calendar` maps servers to the capabilities
+  skills declare. All `--env`/`--header` values are secrets in the keychain. Connections open once per
+  terminal session, else per run; strangers get no MCP. Extra commands: `mcp tools`, `mcp disallow`.
 
 **Phase 5: The daemon.**
 - One async process: the API, the scheduler, Telegram polling, MCP connections.
@@ -153,6 +158,7 @@ Linux), README, LICENSE.
 - Local API on 127.0.0.1 with a token, plus Origin and Host checks (any website can call localhost).
 - Telegram: pairing code for the owner; anyone else's message is third-party content. Approvals as
   buttons.
+- The daemon keeps MCP connections open and passes them to `run()`, as the terminal chat does.
 - The web UI: chat, approvals, run inspector (ported), memory and skills pages.
 - Done when: a schedule fires with the terminal closed and the answer arrives in Telegram.
 
@@ -166,6 +172,9 @@ Linux), README, LICENSE.
 - Design note "From EC2 to laptop": what changed in the threat model.
 - Tests for the new attacks: DNS rebinding and cross-site requests to the API, an email asking the agent
   to call localhost, an MCP tool description carrying instructions, a skill trying to escape its folder.
+- MCP tools annotated destructive: always ask, can't be always-allowed, never run unattended.
+- Decide whether third-party tool descriptions in the context should taint the run (today they are
+  capped and neutralized, not tainting).
 - `local-agent audit`: checks the live config against the rules (API bound to loopback, token set, shell off or
   approved, file permissions on `~/.local-agent`).
 

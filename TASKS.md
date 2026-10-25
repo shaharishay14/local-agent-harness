@@ -53,11 +53,11 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 
 | Task | Owner | Status | Commit |
 |---|---|---|---|
-| `mcp add/list/remove`, stdio + HTTP, secrets per server in the keychain | harness | sent | |
-| Discovery (find, describe, run) for MCP tools | harness | sent | |
-| Gate tiers: read-only runs, else approval until "always allow"; taint | harness | sent | |
-| Skills appear when a server provides what they need | harness | sent | |
-| End to end with a fake Gmail server; docs/mcp.md | harness | sent | |
+| `mcp add/list/remove`, stdio + HTTP, secrets per server in the keychain | harness | checked | ddcc7aa |
+| Discovery (find, describe, run) for MCP tools | harness | checked | ddcc7aa |
+| Gate tiers: read-only runs, else approval until "always allow"; taint | harness | checked | 42c26e3, ddcc7aa |
+| Skills appear when a server provides what they need | harness | checked | 5763ade, ddcc7aa |
+| End to end with a fake Gmail server; docs/mcp.md | harness | checked | ddcc7aa, 85743d6 |
 
 ## Phases 5–8
 
