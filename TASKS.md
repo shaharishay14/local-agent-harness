@@ -2,7 +2,7 @@
 
 Status: todo / sent / done (worker reports) / checked (coordinator verified). Phases refer to PLAN.md.
 
-## Site (branch `site`)
+## Site (branch `site`, retired; worker and worktree removed 2026-10-25)
 
 | Task | Owner | Status | Commit |
 |---|---|---|---|
