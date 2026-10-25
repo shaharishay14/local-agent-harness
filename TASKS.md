@@ -40,3 +40,8 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 ## Phases 3–8
 
 Not started. Broken into tasks when Phase 2 is checked.
+
+## Ideas (not scheduled)
+
+- Run inspector UI in `frontend/` (site worker): port agent-studio's inspector to React and show a run's
+  timeline from the recorded runs in `tests/core/runs/`. Can start before Phase 5; the owner chose to wait.
