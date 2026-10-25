@@ -8,7 +8,7 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 |---|---|---|---|
 | Landing page: section list and copy for review | site | checked | (approved by owner, fixes sent) |
 | Landing page: build | site | checked | ef41bee |
-| Landing page: smaller hero photo | site | sent | |
+| Landing page: smaller hero photo | site | checked | 2cd4766 |
 | Merge `site` into `main` | coordinator | todo | |
 
 ## Phase 0: Skeleton
