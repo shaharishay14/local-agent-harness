@@ -49,9 +49,19 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 | Schedules and reminders: tool, store, due(), `schedules list/rm` | harness | checked | bb5f494 |
 | Security tests and docs notes | harness | checked | bb5f494, 40b9378 |
 
-## Phases 4–8
+## Phase 4: MCP
 
-Not started. Broken into tasks when Phase 3 is checked.
+| Task | Owner | Status | Commit |
+|---|---|---|---|
+| `mcp add/list/remove`, stdio + HTTP, secrets per server in the keychain | harness | sent | |
+| Discovery (find, describe, run) for MCP tools | harness | sent | |
+| Gate tiers: read-only runs, else approval until "always allow"; taint | harness | sent | |
+| Skills appear when a server provides what they need | harness | sent | |
+| End to end with a fake Gmail server; docs/mcp.md | harness | sent | |
+
+## Phases 5–8
+
+Not started. Broken into tasks when Phase 4 is checked.
 
 ## Ideas (not scheduled)
 
