@@ -6,7 +6,7 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 
 | Task | Owner | Status | Commit |
 |---|---|---|---|
-| Landing page: section list and copy for review | site | todo | |
+| Landing page: section list and copy for review | site | sent | |
 | Landing page: build | site | todo | |
 | Merge `site` into `main` | coordinator | todo | |
 
@@ -14,7 +14,7 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 
 | Task | Owner | Status | Commit |
 |---|---|---|---|
-| pyproject.toml (uv), ruff, pytest, CI on macOS + Linux, README, LICENSE | harness | todo | |
+| pyproject.toml (uv), ruff, pytest, CI on macOS + Linux, README, LICENSE | harness | sent | |
 
 ## Phase 1: The core, without Django
 
