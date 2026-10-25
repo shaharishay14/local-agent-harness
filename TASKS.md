@@ -71,7 +71,9 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 | API contract v1.1: approvals status=all, run_id on messages, doc fixes | harness | checked | 85f50cb |
 | UI: switch to v1.1 | frontend | checked | 2fb0a0e |
 | Live check: UI served by the daemon against the real API | coordinator | checked | (one copy fix sent) |
-| Merge `frontend` into main | coordinator | todo | |
+| Telegram ignores strangers by default, with a setting (owner decision) | harness | sent | |
+| UI wording: today's Telegram commands | frontend | checked | d900572 |
+| Merge `frontend` into main; retire the frontend worker | coordinator | checked | f1e7f31 |
 
 ## Phases 6–8
 

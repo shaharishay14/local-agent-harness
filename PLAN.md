@@ -156,8 +156,9 @@ Linux), README, LICENSE.
   source `schedule` and no approval callback, so the run is unattended (no shell, writes only if
   pre-approved). Remove the "won't fire on its own yet" line from `schedule_create`'s result.
 - Local API on 127.0.0.1 with a token, plus Origin and Host checks (any website can call localhost).
-- Telegram: pairing code for the owner; anyone else's message is third-party content. Approvals as
-  buttons.
+- Telegram: pairing code for the owner. The bot is personal: other chats are ignored by default (logged,
+  never answered); `[telegram] answer_strangers = true` answers them as third-party content. Approvals
+  as buttons.
 - The daemon keeps MCP connections open and passes them to `run()`, as the terminal chat does.
 - The web UI: chat, approvals, run inspector (ported), memory and skills pages.
 - Done when: a schedule fires with the terminal closed and the answer arrives in Telegram.
