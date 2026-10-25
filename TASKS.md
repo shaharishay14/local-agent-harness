@@ -94,7 +94,7 @@ Not started. Broken into tasks when Phase 6 is checked.
 
 | Task | Owner | Status | Commit |
 |---|---|---|---|
-| Agent dashboard (~/Projects/agent-dashboard) | dashboard | sent | |
+| Agent dashboard (~/Projects/agent-dashboard) | dashboard | checked | 2fc034a (agent-dashboard repo) |
 | Multi-project kit: shared ~/agent-kit, per-project notes, dashboard grouped by project (after the dashboard) | — | parked | |
 
 ## Ideas (not scheduled)
