@@ -6,8 +6,8 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 
 | Task | Owner | Status | Commit |
 |---|---|---|---|
-| Landing page: section list and copy for review | site | sent | |
-| Landing page: build | site | todo | |
+| Landing page: section list and copy for review | site | checked | (approved by owner, fixes sent) |
+| Landing page: build | site | sent | |
 | Merge `site` into `main` | coordinator | todo | |
 
 ## Phase 0: Skeleton
@@ -20,8 +20,8 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 
 | Task | Owner | Status | Commit |
 |---|---|---|---|
-| Port harness modules and the gate; `Store` interface + SQLite | harness | todo | |
-| Port tests: unit, scripted SDK runs, replay | harness | todo | |
+| Port harness modules and the gate; `Store` interface + SQLite | harness | sent | |
+| Port tests: unit, scripted SDK runs, replay | harness | sent | |
 
 ## Phase 2: First conversation in the terminal
 
