@@ -79,11 +79,11 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 
 | Task | Owner | Status | Commit |
 |---|---|---|---|
-| Release build: UI into the wheel; CI builds UI + wheel | harness | sent | |
-| `uv tool install` / `pipx install` proven in a throwaway tool dir | harness | sent | |
-| `local-agent onboard` (model, keys, Telegram, workspace, service) | harness | sent | |
-| `daemon start/stop/status/logs`, launchd and systemd user service | harness | sent | |
-| `local-agent doctor`, `local-agent update` | harness | sent | |
+| Release build: UI into the wheel; CI builds UI + wheel | harness | checked | 948d6d3, 3b3a967 |
+| `uv tool install` / `pipx install` proven in a throwaway tool dir | harness | checked | fcfcee6 (merge) |
+| `local-agent onboard` (model, keys, Telegram, workspace, service) | harness | checked | 96adfa0 |
+| `daemon start/stop/status/logs`, launchd and systemd user service | harness | checked | 96adfa0 |
+| `local-agent doctor`, `local-agent update` | harness | checked | 96adfa0 |
 | Real 5-minute check: nothing to a Telegram reply (needs owner's key and bot) | owner | todo | |
 
 ## Phases 7–8

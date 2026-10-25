@@ -174,6 +174,12 @@ Linux), README, LICENSE.
 - The release build copies `frontend/dist` into `src/local_agent/ui/`, and the wheel includes it.
   `daemon start/stop/logs` and the service install wrap `local-agent daemon`.
 - Done when: a clean macOS or Linux user goes from nothing to a Telegram reply in under five minutes.
+- As built: `scripts/release.sh` builds the UI into `src/local_agent/ui/` and the wheel (CI checks it).
+  Service verbs live under `daemon` (`install/uninstall/start/stop/restart/status/logs`); launchd agent on
+  macOS, systemd user unit on Linux. `onboard` checks a key with one GET of the provider's model list
+  (skippable). `doctor` fails on a missing service. Documented limits: Linux needs `loginctl enable-linger`
+  to run after logout; the log isn't rotated. Proven in tests and throwaway installs; the real five-minute
+  check needs the owner's key and bot.
 
 **Phase 7: Security pass.**
 - Design note "From EC2 to laptop": what changed in the threat model.
