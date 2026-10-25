@@ -9,7 +9,8 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 | Landing page: section list and copy for review | site | checked | (approved by owner, fixes sent) |
 | Landing page: build | site | checked | ef41bee |
 | Landing page: smaller hero photo | site | checked | 2cd4766 |
-| Merge `site` into `main` | coordinator | todo | |
+| Merge `site` into `main` | coordinator | checked | 65a80c7 |
+| CI job: build + lint site/ | harness | sent | |
 
 ## Phase 0: Skeleton
 
@@ -29,12 +30,12 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 
 | Task | Owner | Status | Commit |
 |---|---|---|---|
-| config.toml, providers (OpenAI, Anthropic, Ollama), keychain | harness | todo | |
-| `run()`: context, loop, stop rules, event log | harness | todo | |
-| Memory as markdown files, distill | harness | todo | |
-| Skills: starter pack, `skill_load`, adjustments | harness | todo | |
-| `local-agent chat`, `local-agent runs show` | harness | todo | |
-| From Phase 1: compaction, inspector, record_runs, run tests on real `run()` | harness | todo | |
+| config.toml, providers (OpenAI, Anthropic, Ollama), keychain | harness | sent | |
+| `run()`: context, loop, stop rules, event log | harness | sent | |
+| Memory as markdown files, distill | harness | sent | |
+| Skills: starter pack, `skill_load`, adjustments | harness | sent | |
+| `local-agent chat`, `local-agent runs show` | harness | sent | |
+| From Phase 1: compaction, inspector, record_runs, run tests on real `run()` | harness | sent | |
 
 ## Phases 3–8
 
