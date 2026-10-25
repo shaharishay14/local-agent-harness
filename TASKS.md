@@ -14,7 +14,7 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 
 | Task | Owner | Status | Commit |
 |---|---|---|---|
-| pyproject.toml (uv), ruff, pytest, CI on macOS + Linux, README, LICENSE | harness | sent | |
+| pyproject.toml (uv), ruff, pytest, CI on macOS + Linux, README, LICENSE | harness | checked | 175d2cc |
 
 ## Phase 1: The core, without Django
 
