@@ -94,7 +94,7 @@ Not started. Broken into tasks when Phase 6 is checked.
 
 | Task | Owner | Status | Commit |
 |---|---|---|---|
-| Agent dashboard (~/Projects/agent-dashboard) | dashboard | todo (waiting on folder trust) | |
+| Agent dashboard (~/Projects/agent-dashboard) | dashboard | sent | |
 
 ## Ideas (not scheduled)
 
