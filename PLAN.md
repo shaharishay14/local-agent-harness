@@ -132,6 +132,9 @@ Linux), README, LICENSE.
 - Web fetch with the egress guard (now also blocking loopback and the LAN), optional web search.
 - Schedules and reminders: "every weekday at 8", "remind me Friday".
 - Done when: the tools work, and their security tests pass (path escape, loopback fetch, unapproved shell).
+- As built: web search uses SerpAPI behind a provider interface. `schedule_create` needs approval (a
+  schedule is a standing instruction that runs unattended later). Output of `files_read` and `shell_run`
+  counts as third-party content and taints the run. Files, schedules and shell are owner-only.
 
 **Phase 4: MCP.**
 - `local-agent mcp add/list/remove`, local (stdio) and remote (HTTP) servers, secrets in the keychain and passed
@@ -144,6 +147,9 @@ Linux), README, LICENSE.
 
 **Phase 5: The daemon.**
 - One async process: the API, the scheduler, Telegram polling, MCP connections.
+- The scheduler calls `schedules.due(store, now)` every minute and runs each due message with
+  source `schedule` and no approval callback, so the run is unattended (no shell, writes only if
+  pre-approved). Remove the "won't fire on its own yet" line from `schedule_create`'s result.
 - Local API on 127.0.0.1 with a token, plus Origin and Host checks (any website can call localhost).
 - Telegram: pairing code for the owner; anyone else's message is third-party content. Approvals as
   buttons.

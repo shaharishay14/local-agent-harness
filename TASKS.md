@@ -42,12 +42,12 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 
 | Task | Owner | Status | Commit |
 |---|---|---|---|
-| LiteLLM as a core dependency (owner decision) | harness | sent | |
-| Workspace files, confined to workspace/files/ | harness | sent | |
-| Shell: off by default, approval per command, never unattended | harness | sent | |
-| Web fetch through the egress guard (loopback + LAN blocked), web search (SerpAPI) | harness | sent | |
-| Schedules and reminders: tool, store, due(), `schedules list/rm` | harness | sent | |
-| Security tests and docs notes | harness | sent | |
+| LiteLLM as a core dependency (owner decision) | harness | checked | 6050fa3 |
+| Workspace files, confined to workspace/files/ | harness | checked | bb5f494 |
+| Shell: off by default, approval per command, never unattended | harness | checked | bb5f494 |
+| Web fetch through the egress guard (loopback + LAN blocked), web search (SerpAPI) | harness | checked | bb5f494 |
+| Schedules and reminders: tool, store, due(), `schedules list/rm` | harness | checked | bb5f494 |
+| Security tests and docs notes | harness | checked | bb5f494, 40b9378 |
 
 ## Phases 4–8
 
