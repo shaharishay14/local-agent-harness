@@ -161,11 +161,17 @@ Linux), README, LICENSE.
 - The daemon keeps MCP connections open and passes them to `run()`, as the terminal chat does.
 - The web UI: chat, approvals, run inspector (ported), memory and skills pages.
 - Done when: a schedule fires with the terminal closed and the answer arrives in Telegram.
+- As built: proven against a fake Telegram Bot API (owner's choice; no real bot yet). Port 7878, token in
+  `api-token` (mode 600), opened via `http://127.0.0.1:7878/#token=…`; `/api/health` needs no token. A
+  scheduled answer is always delivered. Telegram keeps one conversation per chat; background distill runs
+  hourly. `local-agent daemon` runs in the foreground; `local-agent telegram pair` gives a pairing code.
 
 **Phase 6: Install like a product.**
 - `uv tool install local-agent` (and `pipx`).
 - `local-agent onboard`: model and key, optional search key, Telegram pairing, workspace, background service.
 - `local-agent doctor`, `local-agent update`, `local-agent daemon start/stop/logs`.
+- The release build copies `frontend/dist` into `src/local_agent/ui/`, and the wheel includes it.
+  `daemon start/stop/logs` and the service install wrap `local-agent daemon`.
 - Done when: a clean macOS or Linux user goes from nothing to a Telegram reply in under five minutes.
 
 **Phase 7: Security pass.**

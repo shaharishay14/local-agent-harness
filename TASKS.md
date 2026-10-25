@@ -64,9 +64,9 @@ Status: todo / sent / done (worker reports) / checked (coordinator verified). Ph
 | Task | Owner | Status | Commit |
 |---|---|---|---|
 | API contract, docs/api.md (first, forwarded to frontend) | harness | checked | c010e5d |
-| `local-agent daemon`: API on 127.0.0.1 with token, Origin and Host checks | harness | sent | |
-| Scheduler firing schedules unattended; notify tool; background distill | harness | sent | |
-| Telegram (fake in tests): pairing, strangers third-party, approval buttons | harness | sent | |
+| `local-agent daemon`: API on 127.0.0.1 with token, Origin and Host checks | harness | checked | 0e1ed2c, b75a72b |
+| Scheduler firing schedules unattended; notify tool; background distill | harness | checked | b75a72b |
+| Telegram (fake in tests): pairing, strangers third-party, approval buttons | harness | checked | b75a72b, 354a4b3 |
 | Web UI in frontend/: chat, approvals, runs inspector, memory, skills, schedules, apps | frontend | sent | |
 | Merge `frontend` into main | coordinator | todo | |
 
