@@ -206,6 +206,13 @@ Linux), README, LICENSE.
 - Run them on hosted and local models and publish the table: "the same harness on gpt-4o, Claude and a
   local model".
 - The README tells the story; `docs/` holds one note per mechanism.
+- As built: the evals live in `src/local_agent/evals/` (`uv run python -m local_agent.evals`). All ten golden tasks
+  ported as is; the fake inbox, calendar, search, weather and calculator are stdio MCP servers on the real MCP path,
+  and built-ins are off in eval runs. Checks on the event log plus a judge model (default gpt-4o). `--scripted`
+  runs offline (pytest and CI run it); paid runs read keys only from the keychain and stop before `--max-cost`
+  (default $3). Table: gpt-4o, claude-sonnet-5-5, ollama qwen2.5:7b (`docs/evals.md`). Also in this phase: Telegram
+  answers only its paired owner (`answer_strangers` removed), runs ask for token usage so Anthropic streams count
+  toward budgets, and every Runtime turns off the Agents SDK's trace upload.
 
 ## Not now
 
