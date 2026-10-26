@@ -192,6 +192,14 @@ Linux), README, LICENSE.
   only in the store, with no API endpoint or command that shows them.
 - `local-agent audit`: checks the live config against the rules (API bound to loopback, token set, shell off or
   approved, file permissions on `~/.local-agent`).
+- As built: `docs/ec2-to-laptop.md` maps each threat to its mechanism; `tests/attacks/` plays CSRF, cross-site
+  approval, DNS rebinding, an email pointing at localhost or the router, a poisoned MCP description and a skill
+  symlink escape. MCP descriptions taint the run (tools given directly: from the first step; via discovery: on
+  describe) and are still capped and neutralized. Only an explicit `destructiveHint` counts as destructive: such
+  tools ask every time, can't be always-allowed (CLI and API refuse with 409) and never run unattended. Skills
+  can't point outside their folder; the files symlink race is closed. Between-run events show in
+  `local-agent events` and `GET /api/events` (API v1.2). `local-agent audit` exits 1 on any failure, and
+  `doctor` adds a security-rules line.
 
 **Phase 8: Evals and the write-up.**
 - Port the golden tasks; the fake inbox, calendar and search become fake MCP servers.
