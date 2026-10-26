@@ -35,7 +35,7 @@ const features: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: FileText,
     title: 'Files and the web',
-    body: 'Reads and writes files in its own workspace folder, fetches web pages, and searches the web if you add a search key.',
+    body: 'Reads and writes files in its own workspace folder, fetches web pages, and searches the web with no extra key: the search built into your model provider, or DuckDuckGo with a local model.',
   },
   {
     icon: Cpu,
