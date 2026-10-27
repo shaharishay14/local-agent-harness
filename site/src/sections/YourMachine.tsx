@@ -1,4 +1,5 @@
-import { FileText, KeyRound, Lock, ScanEye, Scale, ShieldCheck, type LucideIcon } from 'lucide-react'
+import type { ReactNode } from 'react'
+import { FileText, Gauge, Globe, History, KeyRound, ScanEye, ShieldCheck, UserRound, type LucideIcon } from 'lucide-react'
 import { site } from '../config'
 import { Reveal } from '../components/Reveal'
 
@@ -12,29 +13,52 @@ const tree: [string, string][] = [
   ['    files/', 'where it reads and writes'],
 ]
 
-const points: { icon: LucideIcon; title: string; body: string }[] = [
+const points: { icon: LucideIcon; title: string; body: ReactNode }[] = [
   {
     icon: FileText,
     title: 'Plain files',
     body: 'Memory and skills are markdown you can read, edit and back up. One SQLite file holds the log.',
   },
-  { icon: KeyRound, title: 'Keys in your keychain', body: 'API keys never sit in a config file.' },
   {
-    icon: ShieldCheck,
-    title: 'Nothing risky without you',
-    body: 'Anything that changes something in your apps, and every shell command, waits for your yes. Read-only tools just run. The shell stays off until you turn it on.',
+    icon: KeyRound,
+    title: 'Keys in your keychain',
+    body: 'Never in a config file. Each app gets only its own key, and key-shaped text is scrubbed from what the agent reads and logs.',
   },
   {
-    icon: Lock,
-    title: 'Locked to your machine',
-    body: 'The web page and API listen only on 127.0.0.1, behind a token.',
+    icon: ShieldCheck,
+    title: 'The permission gate',
+    body: 'App actions that aren’t read-only, and every shell command, wait for your yes. Unknown tools never run. The shell stays off until you turn it on.',
   },
   {
     icon: ScanEye,
     title: 'Untrusted content is tracked',
-    body: 'Content from emails, web pages and apps is tracked as untrusted, and risky actions after reading it need your approval. Web fetches can’t reach your local network.',
+    body: 'Emails, web pages and app output are marked untrusted. After reading them, a pre-approved send only goes to people you named yourself.',
   },
-  { icon: Scale, title: 'MIT licensed', body: 'Read every line and change anything.' },
+  {
+    icon: Globe,
+    title: 'The egress guard',
+    body: 'Pages it opens must be on the public internet, on every redirect. A link in an email can’t reach your router or the agent’s own API.',
+  },
+  {
+    icon: Gauge,
+    title: 'Budgets',
+    body: 'Limits on tokens and tool calls per run, an optional daily budget, and stop rules for loops and broken tools.',
+  },
+  {
+    icon: UserRound,
+    title: 'One owner',
+    body: 'Your Telegram bot answers only you. The web page and API listen on 127.0.0.1, behind a token.',
+  },
+  {
+    icon: History,
+    title: 'Every step inspectable',
+    body: (
+      <>
+        <code>{site.command} runs show</code> prints any run’s timeline. <code>{site.command} audit</code> checks
+        your setup against these rules.
+      </>
+    ),
+  },
 ]
 
 export function YourMachine() {
@@ -42,13 +66,13 @@ export function YourMachine() {
     <section className="l-sec" id="machine" aria-labelledby="machine-title">
       <div className="l-wrap">
         <Reveal className="l-head">
-          <p className="s-eyebrow">Privacy and control</p>
+          <p className="s-eyebrow">Where we differ</p>
           <h2 id="machine-title" className="l-h2">
-            Your machine, <em>your rules</em>
+            One owner. <em>Hard rules.</em>
           </h2>
           <p className="l-sub">
-            Everything {site.name} knows sits in one folder in your home directory. No account, no server of
-            ours, no telemetry.
+            Prompts can be talked out of anything, so the rules that must hold live in code. Everything{' '}
+            {site.name} knows sits in one folder in your home directory. No account, no telemetry.
           </p>
         </Reveal>
         <div className="machine">

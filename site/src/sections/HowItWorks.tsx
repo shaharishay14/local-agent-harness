@@ -11,10 +11,12 @@ function InstallArt() {
       <p>
         <span className="term-dim">$</span> {site.command} onboard
       </p>
-      <p className="term-dim">  Model: anthropic · key saved to keychain</p>
-      <p className="term-dim">  Workspace: {site.stateDir}/workspace</p>
+      <p className="term-dim">  model, search, Telegram, background service</p>
       <p>
-        <span className="term-ok">✓</span> Ready. Try: {site.command} chat
+        <span className="term-dim">$</span> {site.command} doctor
+      </p>
+      <p>
+        <span className="term-ok">✓</span> All good. Try: {site.command} chat
       </p>
     </div>
   )
@@ -62,6 +64,26 @@ function ChannelArt() {
   )
 }
 
+function ConnectArt() {
+  return (
+    <div className="mini-term" aria-hidden="true">
+      <p>
+        <span className="term-dim">$</span> {site.command} mcp add gmail --provides email \
+      </p>
+      <p>{'    '}--env GMAIL_TOKEN -- &lt;command&gt;</p>
+      <p className="term-dim">  Added gmail, providing email.</p>
+      <p>
+        <span className="term-dim">$</span> {site.command} mcp tools gmail
+      </p>
+      <p className="term-dim">  search_emails   read-only</p>
+      <p className="term-dim">  send_email      asks</p>
+      <p>
+        <span className="term-dim">$</span> {site.command} mcp allow gmail send_email
+      </p>
+    </div>
+  )
+}
+
 export function HowItWorks() {
   return (
     <section className="l-sec" id="how" aria-labelledby="how-title">
@@ -69,14 +91,18 @@ export function HowItWorks() {
         <Reveal className="l-head">
           <p className="s-eyebrow">How it works</p>
           <h2 id="how-title" className="l-h2">
-            Three steps to <em>your own agent</em>
+            Four steps to <em>your own agent</em>
           </h2>
         </Reveal>
         <div className="s-how">
           <Reveal as="article" className="s-how-step s-panel">
             <div className="s-how-text">
               <h3>Install it</h3>
-              <p>One command with uv or pipx. You need macOS or Linux and Python 3.12 or newer.</p>
+              <p>
+                One command with uv or pipx, then <code>{site.command} onboard</code> sets up the rest.{' '}
+                <code>doctor</code> checks it and tells you how to fix anything wrong, <code>audit</code> checks it
+                against the security rules, <code>update</code> upgrades it. macOS or Linux, Python 3.12+.
+              </p>
             </div>
             <div className="s-how-art s-photo-blur">
               <InstallArt />
@@ -86,8 +112,8 @@ export function HowItWorks() {
             <div className="s-how-text">
               <h3>Bring a model</h3>
               <p>
-                Use an OpenAI or Anthropic key, kept in your OS keychain, or a free local model through Ollama.{' '}
-                <code>{site.command} onboard</code> walks you through it.
+                An OpenAI or Anthropic key, kept in your OS keychain, or a free local model through Ollama. Web
+                search comes with it: your model provider’s own, no extra key. SerpAPI if you want Google.
               </p>
             </div>
             <div className="s-how-art s-photo-blur">
@@ -98,12 +124,26 @@ export function HowItWorks() {
             <div className="s-how-text">
               <h3>Talk to it</h3>
               <p>
-                Chat in the terminal, open the local web page, or pair Telegram with a code. Turn on the
-                background service and schedules run with the terminal closed.
+                Chat in the terminal, open the local web page, or pair your Telegram bot with a code. The
+                background service (<code>{site.command} daemon</code>) keeps schedules and reminders firing with
+                the terminal closed.
               </p>
             </div>
             <div className="s-how-art s-photo-blur">
               <ChannelArt />
+            </div>
+          </Reveal>
+          <Reveal as="article" className="s-how-step s-how-step--flip s-panel">
+            <div className="s-how-text">
+              <h3>Connect your tools</h3>
+              <p>
+                Gmail, your calendar, anything with an MCP server. Add it with one command; its keys go to your
+                keychain and only to that server. Reads run freely. Anything else asks first, until you mark it
+                “always allow.”
+              </p>
+            </div>
+            <div className="s-how-art s-photo-blur">
+              <ConnectArt />
             </div>
           </Reveal>
         </div>

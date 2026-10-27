@@ -12,7 +12,7 @@ export function ClosingCta() {
           <div className="s-cta-img" aria-hidden="true" />
           <div className="s-cta-in">
             <h2 id="cta-title">
-              Your own agent, <em className="s-serif">one command away.</em>
+              Make yourself at home. <em className="s-serif">It’s your agent.</em>
             </h2>
             <InstallPill />
             {site.githubUrl && (

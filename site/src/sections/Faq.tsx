@@ -34,22 +34,43 @@ const faqs: { q: string; a: ReactNode }[] = [
     q: 'Where does my data go?',
     a: (
       <>
-        It stays in <code>{site.stateDir}</code> on your computer. What leaves: requests to the model you
-        chose, messages through Telegram if you pair it, and the web pages, search and apps you ask it to
-        use. No telemetry.
+        It stays in <code>{site.stateDir}</code> on your computer. What leaves: requests to your model
+        provider (nothing, with a local model), messages through Telegram if you pair it, web searches, and the
+        pages and apps you ask it to use. No telemetry.
       </>
     ),
   },
   {
     q: 'Will it act without asking?',
-    a: 'Not on anything risky. Anything that changes something in your apps, and every shell command, waits for your yes, in the terminal or as buttons in Telegram. Read-only tools run on their own, and you can mark a tool “always allow.”',
+    a: 'Not on anything risky. App actions that aren’t read-only, and every shell command, wait for your yes: a y/N in the terminal, a card on the web page, buttons in Telegram. Read-only tools run on their own, and you can mark an app tool “always allow.” It reads and writes files in its own folder without asking.',
+  },
+  {
+    q: 'Does it work with the terminal closed?',
+    a: (
+      <>
+        Yes. <code>{site.command} onboard</code> installs a background service (launchd on macOS, systemd on
+        Linux). Schedules and reminders fire on time and the answer arrives in Telegram. Unattended, it only
+        does what you pre-approved and never runs the shell.
+      </>
+    ),
+  },
+  {
+    q: 'How do I see what it did?',
+    a: (
+      <>
+        Every step of every run is an event. <code>{site.command} runs show &lt;id&gt;</code> prints the
+        timeline, the web page has a run inspector, and <code>{site.command} audit</code> checks your setup
+        against the security rules.
+      </>
+    ),
   },
   {
     q: 'Which apps can it use?',
     a: (
       <>
-        Anything with an MCP server. Add one with <code>{site.command} mcp add</code>. Skills that need email
-        or a calendar appear once a matching server is connected.
+        Anything with an MCP server: <code>{site.command} mcp add &lt;name&gt; -- &lt;command&gt;</code>. Skills
+        that need email or a calendar appear once a matching server is connected. Web search, documents and
+        voice notes work without one.
       </>
     ),
   },

@@ -6,6 +6,7 @@ import { Hero } from './sections/Hero'
 import { HowItWorks } from './sections/HowItWorks'
 import { ModelsStrip } from './sections/ModelsStrip'
 import { TerminalShot } from './sections/TerminalShot'
+import { UseCases } from './sections/UseCases'
 import { YourMachine } from './sections/YourMachine'
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
       <main id="main">
         <TerminalShot />
         <Features />
+        <UseCases />
         <HowItWorks />
         <YourMachine />
         <ModelsStrip />

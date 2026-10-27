@@ -10,6 +10,7 @@ export function Footer() {
         </span>
         <nav aria-label="Footer" className="s-foot-links">
           <a href="#what">What it does</a>
+          <a href="#uses">Use cases</a>
           <a href="#how">How it works</a>
           <a href="#faq">FAQ</a>
           {site.githubUrl && <a href={site.githubUrl}>GitHub</a>}

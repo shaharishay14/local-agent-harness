@@ -1,46 +1,46 @@
-import { Brain, Clock, Cpu, FileText, History, Plug, ShieldCheck, Sparkles, type LucideIcon } from 'lucide-react'
+import { Brain, Clock, FileText, History, Laptop, MessageCircle, Plug, Sparkles, type LucideIcon } from 'lucide-react'
 import { Reveal } from '../components/Reveal'
 
 const features: { icon: LucideIcon; title: string; body: string }[] = [
   {
+    icon: Laptop,
+    title: 'Runs on your machine',
+    body: 'One process on your Mac or Linux box. Its state is plain files and one SQLite file in your home folder. No account, no server of ours.',
+  },
+  {
+    icon: MessageCircle,
+    title: 'Chat where you are',
+    body: 'The terminal, a local web page, or your own Telegram bot. Send it photos, voice notes and files; it sees, transcribes and reads them.',
+  },
+  {
     icon: Brain,
-    title: 'Remembers you',
-    body: 'Preferences, people and projects go into markdown files on your disk. Open them, edit them, delete them.',
+    title: 'Persistent memory',
+    body: 'Remembers your preferences, projects and people from one conversation to the next, as markdown notes you can open and edit.',
   },
   {
     icon: Sparkles,
-    title: 'Follows your skills',
-    body: 'A starter pack of skills comes included. Adjust one to fit how you work, or add your own folder.',
-  },
-  {
-    icon: Clock,
-    title: 'Runs on a schedule',
-    body: '“Every weekday at 8” or “remind me Friday.” It runs in the background and messages you on Telegram.',
+    title: 'Skills',
+    body: 'Morning brief, inbox triage, research report, meeting prep, weekly review. Each loads only when you need it. Adjust them or write your own.',
   },
   {
     icon: Plug,
-    title: 'Connects to your apps',
-    body: 'Add any MCP server, local or remote, with one command. Its keys stay in your keychain and go only to that server.',
+    title: 'Connect your apps',
+    body: 'Gmail, your calendar, anything with an MCP server, in one command. Reads run on their own; anything else asks you first.',
   },
   {
-    icon: ShieldCheck,
-    title: 'Asks before acting',
-    body: 'Anything that changes something in your apps, and every shell command, waits for your yes. Read-only tools just run.',
-  },
-  {
-    icon: History,
-    title: 'Logs every run',
-    body: 'Every step is an event. Replay a run or open it in the inspector to see why it did what it did.',
+    icon: Clock,
+    title: 'Works while you’re away',
+    body: '“Every weekday at 8.” “Remind me Friday.” Schedules fire with the terminal closed, and the answer lands in Telegram.',
   },
   {
     icon: FileText,
-    title: 'Files and the web',
-    body: 'Reads and writes files in its own workspace folder, fetches web pages, and searches the web with no extra key: the search built into your model provider, or DuckDuckGo with a local model.',
+    title: 'Reads the web and your files',
+    body: 'Searches the web with no extra key, opens pages, and reads PDFs, Word files and spreadsheets in its own folder.',
   },
   {
-    icon: Cpu,
-    title: 'The right model for the job',
-    body: 'A skill can ask for the stronger model when the task is subtle, so everyday chat stays cheap.',
+    icon: History,
+    title: 'Every step on the record',
+    body: 'Each run is a timeline of events. Open one with runs show and see exactly what it did and why.',
   },
 ]
 
@@ -51,7 +51,7 @@ export function Features() {
         <Reveal className="l-head">
           <p className="s-eyebrow">What it does</p>
           <h2 id="what-title" className="l-h2">
-            A small agent that does <em>real work</em>
+            An agent that <em>gets things done</em>
           </h2>
         </Reveal>
         <Reveal className="s-hfgrid">

@@ -95,9 +95,10 @@ export function TerminalShot() {
             </span>
           ))}
         </pre>
-        {site.inDevelopment && (
-          <figcaption className="shot-caption">Example session. {site.name} is still in development.</figcaption>
-        )}
+        <figcaption className="shot-caption">
+          Example session, with a Gmail MCP server connected.
+          {site.inDevelopment && ` ${site.name} is still in development.`}
+        </figcaption>
       </figure>
     </div>
   )

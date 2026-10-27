@@ -5,6 +5,7 @@ import { InstallPill } from '../components/InstallPill'
 
 const navLinks = [
   { href: '#what', label: 'What it does' },
+  { href: '#uses', label: 'Use cases' },
   { href: '#how', label: 'How it works' },
   { href: '#machine', label: 'Your machine' },
   { href: '#faq', label: 'FAQ' },
@@ -42,14 +43,14 @@ export function Hero() {
       <div className="l-hero-in">
         <p className="s-eyebrow s-bf">Open source · Runs on your machine</p>
         <h1 id="hero-title" className="s-display s-bf s-bf1">
-          An AI agent that lives
+          The AI agent that
           <br />
-          <em>on your computer.</em>
+          <em>does the work.</em>
         </h1>
         <p className="s-lead s-bf s-bf2">
-          Install it with one command, bring your own model, and talk to it from the terminal, a local web
-          page or Telegram. It remembers you in plain files on your disk and asks before it does anything
-          that matters.
+          Searches the web, reads your PDFs, turns a voice note into a reminder. Connect your apps and it briefs
+          you every morning, triages your inbox and preps your meetings. Talk to it from the terminal, a local
+          web page or Telegram. Open source, runs on your machine, answers to one owner: you.
         </p>
         {site.inDevelopment && (
           <span className="s-badge s-bf s-bf2">
