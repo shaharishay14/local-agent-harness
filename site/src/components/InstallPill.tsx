@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import { Check, Copy } from 'lucide-react'
 import { site } from '../config'
+import { Icon } from './icons'
 
 export function InstallPill() {
   const [copied, setCopied] = useState(false)
@@ -16,26 +16,24 @@ export function InstallPill() {
     }
     setCopied(true)
     window.clearTimeout(timer.current)
-    timer.current = window.setTimeout(() => setCopied(false), 2000)
+    timer.current = window.setTimeout(() => setCopied(false), 1600)
   }
 
   return (
-    <div className="install">
-      <div className="install-pill">
-        <code>
-          <span className="install-prompt" aria-hidden="true">$</span>
-          {site.install}
-        </code>
-        <button type="button" className="install-copy" onClick={copy} aria-label="Copy install command">
-          {copied ? <Check size={16} strokeWidth={1.7} /> : <Copy size={16} strokeWidth={1.7} />}
-        </button>
-        <span className="s-sr" role="status">
-          {copied ? 'Copied to clipboard' : ''}
+    <div className="install glass">
+      <span>
+        <span className="install-p" aria-hidden="true">
+          ${' '}
         </span>
-      </div>
-      {site.inDevelopment && (
-        <p className="install-note">Not on PyPI yet. This is the command for the first release.</p>
-      )}
+        {site.install}
+      </span>
+      <button type="button" onClick={copy} aria-label="Copy install command">
+        <Icon name={copied ? 'check' : 'copy'} size={15} />
+        {copied ? 'Copied' : 'Copy'}
+      </button>
+      <span className="sr" role="status">
+        {copied ? 'Copied to clipboard' : ''}
+      </span>
     </div>
   )
 }

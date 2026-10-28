@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState, type KeyboardEvent, type ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
+import { GithubLink } from '../components/GithubLink'
+import { Icon } from '../components/icons'
 import { site } from '../config'
-import { Reveal } from '../components/Reveal'
-import { usePrefersReducedMotion } from '../hooks'
 
 const faqs: { q: string; a: ReactNode }[] = [
   {
@@ -80,91 +80,56 @@ const faqs: { q: string; a: ReactNode }[] = [
   },
 ]
 
-const ADVANCE_MS = 6000
-
 export function Faq() {
-  const [active, setActive] = useState(0)
-  const [paused, setPaused] = useState(false)
-  const reduced = usePrefersReducedMotion()
-  const tabs = useRef<(HTMLButtonElement | null)[]>([])
-
-  // Auto-advance; changing `active` (a click or a key) restarts the timer.
-  useEffect(() => {
-    if (paused || reduced) return
-    const id = window.setTimeout(() => setActive((a) => (a + 1) % faqs.length), ADVANCE_MS)
-    return () => window.clearTimeout(id)
-  }, [active, paused, reduced])
-
-  function onKeyDown(e: KeyboardEvent<HTMLDivElement>) {
-    const keys: Record<string, number> = {
-      ArrowDown: active + 1,
-      ArrowRight: active + 1,
-      ArrowUp: active - 1,
-      ArrowLeft: active - 1,
-      Home: 0,
-      End: faqs.length - 1,
-    }
-    if (!(e.key in keys)) return
-    e.preventDefault()
-    const next = (keys[e.key] + faqs.length) % faqs.length
-    setActive(next)
-    tabs.current[next]?.focus()
-  }
-
+  const [open, setOpen] = useState(0)
   return (
-    <section className="l-sec" id="faq" aria-labelledby="faq-title">
-      <div className="l-wrap">
-        <Reveal className="l-head">
-          <p className="s-eyebrow">FAQ</p>
-          <h2 id="faq-title" className="l-h2">
-            Questions, <em>answered</em>
-          </h2>
-        </Reveal>
-        <Reveal>
-          <div
-            className="s-faq s-photo-blur"
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-            onFocus={() => setPaused(true)}
-            onBlur={(e) => {
-              if (!e.currentTarget.contains(e.relatedTarget)) setPaused(false)
-            }}
-          >
-            <div className="s-faq-list" role="tablist" aria-label="Questions" aria-orientation="vertical" onKeyDown={onKeyDown}>
-              {faqs.map((f, i) => (
-                <button
-                  key={f.q}
-                  ref={(el) => {
-                    tabs.current[i] = el
-                  }}
-                  type="button"
-                  role="tab"
-                  id={`faq-tab-${i}`}
-                  aria-selected={i === active}
-                  aria-controls="faq-panel"
-                  tabIndex={i === active ? 0 : -1}
-                  className="s-faq-q"
-                  onClick={() => setActive(i)}
-                >
-                  {f.q}
-                </button>
-              ))}
-            </div>
-            <div
-              className="s-faq-a s-glass"
-              role="tabpanel"
-              id="faq-panel"
-              aria-labelledby={`faq-tab-${active}`}
-              tabIndex={0}
-            >
-              <h3>{faqs[active].q}</h3>
-              <p>{faqs[active].a}</p>
-              <div className="s-faq-bar" aria-hidden="true">
-                <i style={{ width: `${((active + 1) / faqs.length) * 100}%` }} />
+    <section className="sec" id="faq" aria-labelledby="faq-title">
+      <div className="wrap">
+        <div className="faq">
+          <div className="faq-side">
+            <p className="eyebrow">FAQ</p>
+            <h2 id="faq-title" className="h2">
+              Questions, <em>answered</em>
+            </h2>
+            <p className="sub">The short version of what people ask first. The README has the rest.</p>
+            {site.issuesUrl && (
+              <div className="faq-ask glass">
+                <b>Still wondering about something?</b>
+                <p>Open an issue on GitHub. It’s built in the open.</p>
+                <GithubLink className="btn btn--white btn--sm" href={site.issuesUrl} dark size={15}>
+                  Ask on GitHub
+                </GithubLink>
               </div>
-            </div>
+            )}
           </div>
-        </Reveal>
+          <div className="acc glass">
+            {faqs.map((f, i) => {
+              const isOpen = open === i
+              return (
+                <div key={f.q} className={`qa ${isOpen ? 'is-open' : ''}`}>
+                  <h3>
+                    <button
+                      type="button"
+                      className="qa-q"
+                      id={`faq-q-${i}`}
+                      aria-expanded={isOpen}
+                      aria-controls={`faq-a-${i}`}
+                      onClick={() => setOpen(isOpen ? -1 : i)}
+                    >
+                      {f.q}
+                      <span className="plus" aria-hidden="true">
+                        <Icon name="plus" size={16} />
+                      </span>
+                    </button>
+                  </h3>
+                  <p className="qa-a" id={`faq-a-${i}`} role="region" aria-labelledby={`faq-q-${i}`} hidden={!isOpen}>
+                    {f.a}
+                  </p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
       </div>
     </section>
   )

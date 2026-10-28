@@ -1,36 +1,22 @@
-import { FileText } from 'lucide-react'
-import { site } from '../config'
-import { GithubIcon } from '../components/icons'
+import { GithubLink } from '../components/GithubLink'
 import { InstallPill } from '../components/InstallPill'
-import { Reveal } from '../components/Reveal'
+import { site } from '../config'
 
 export function ClosingCta() {
   return (
-    <section className="l-sec" aria-labelledby="cta-title">
-      <div className="l-wrap">
-        <Reveal className="s-cta">
-          <div className="s-cta-img" aria-hidden="true" />
-          <div className="s-cta-in">
-            <h2 id="cta-title">
-              Make yourself at home. <em className="s-serif">It’s your agent.</em>
-            </h2>
-            <InstallPill />
-            {site.githubUrl && (
-              <div className="hero-ctas">
-                <a className="s-btn s-btn--white s-btn--lg" href={site.githubUrl}>
-                  <GithubIcon />
-                  View on GitHub
-                </a>
-                {site.planUrl && (
-                  <a className="s-btn s-btn--glass s-btn--lg" href={site.planUrl}>
-                    <FileText size={16} strokeWidth={1.7} aria-hidden="true" />
-                    Read the plan
-                  </a>
-                )}
-              </div>
-            )}
-          </div>
-        </Reveal>
+    <section aria-labelledby="cta-title" className="cta-sec">
+      <div className="wrap">
+        <div className="cta">
+          <h2 id="cta-title">
+            Make yourself at home.
+            <br />
+            <em>It’s your agent.</em>
+          </h2>
+          <InstallPill />
+          <GithubLink className="btn btn--white" href={site.githubUrl} dark>
+            View on GitHub
+          </GithubLink>
+        </div>
       </div>
     </section>
   )
