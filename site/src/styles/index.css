@@ -106,7 +106,7 @@ a{color:#fff}a:hover{color:#E9ECF1}
 .art{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:16px;min-height:180px;margin-bottom:12px;padding:18px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .art--sm{min-height:132px}
 .chip{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:var(--glass-in);border:1px solid var(--line-2);font-size:12.5px;color:var(--ink-2);white-space:nowrap}
-.tile{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:14px;background:var(--glass);border:1px solid var(--glass-edge);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 10px 24px -12px rgba(0,0,0,.8);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);flex:none;color:#fff}
+.tile{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:14px;background:var(--glass),var(--tile-lift);border:1px solid var(--glass-edge);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 10px 24px -12px rgba(0,0,0,.8);flex:none;color:#fff}
 .tile--sm{width:36px;height:36px;border-radius:10px}
 .tile--lg{width:72px;height:72px;border-radius:20px}
 .tile--white{background:#fff;border-color:#fff}
@@ -150,11 +150,17 @@ a{color:#fff}a:hover{color:#E9ECF1}
 /* Integration visual: logos wired to the agent, a light running along each wire. */
 .integ{position:relative;width:100%;max-width:564px;aspect-ratio:564/410;margin:0 auto;container-type:inline-size}
 .integ-dots,.flow-box .integ-dots{position:absolute;inset:0;opacity:.18;background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:32px 32px;-webkit-mask-image:radial-gradient(closest-side,#000,transparent);mask-image:radial-gradient(closest-side,#000,transparent)}
-.integ svg.wires,.flow-box svg.wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+/* Own layer, so the moving wire lights don't repaint the glass card they sit in. */
+.integ svg.wires,.flow-box svg.wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible;will-change:transform}
 .w-base{stroke:rgba(255,255,255,.16);stroke-width:1;fill:none}
 .w-run{stroke:rgba(170,200,255,.9);stroke-width:2;fill:none;stroke-linecap:round;stroke-dasharray:40 160;stroke-dashoffset:200;animation:wire 4s linear infinite}
 .w-run.d1{animation-delay:-.7s}.w-run.d2{animation-delay:-1.4s}.w-run.d3{animation-delay:-2.1s}.w-run.d4{animation-delay:-2.8s}.w-run.d5{animation-delay:-3.5s}
 @keyframes wire{to{stroke-dashoffset:-200}}
+/* Tiles and the agent mark sit on glass cards, over wires and a grid that move every frame. A backdrop blur there
+   re-runs every frame per tile (33-40 fps around the wiring). The lift below matches the blurred look within a few
+   levels without the blur. */
+:root{--tile-lift:linear-gradient(rgba(255,255,255,.13),rgba(255,255,255,.13))}
+.integ-core.glass{-webkit-backdrop-filter:none;backdrop-filter:none;background:var(--glass),var(--tile-lift)}
 .integ-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;padding:8px;border-radius:22px}
 .integ-core .mark{width:56px;height:56px;border-radius:16px}
 .integ-ring{position:absolute;inset:0;border-radius:22px;border:2px solid rgba(170,200,255,.35);animation:ring 3s ease-in-out infinite}
