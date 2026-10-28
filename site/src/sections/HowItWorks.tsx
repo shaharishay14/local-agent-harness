@@ -1,111 +1,157 @@
-import { Globe, KeyRound, Send, SquareTerminal } from 'lucide-react'
+import type { CSSProperties, ReactNode } from 'react'
+import type { BrandName, IconName } from '../components/icons'
+import { Icon, Logo } from '../components/icons'
 import { site } from '../config'
-import { Reveal } from '../components/Reveal'
 
-function InstallArt() {
+function Step({ flip, title, children, art, artStyle }: {
+  flip?: boolean
+  title: string
+  children: ReactNode
+  art: ReactNode
+  artStyle?: CSSProperties
+}) {
   return (
-    <div className="mini-term" aria-hidden="true">
-      <p>
-        <span className="term-dim">$</span> {site.install}
-      </p>
-      <p>
-        <span className="term-dim">$</span> {site.command} onboard
-      </p>
-      <p className="term-dim">  Model: anthropic · key saved to keychain</p>
-      <p className="term-dim">  Workspace: {site.stateDir}/workspace</p>
-      <p>
-        <span className="term-ok">✓</span> Ready. Try: {site.command} chat
-      </p>
+    <article className={`step glass ${flip ? 'step--flip' : ''}`}>
+      <div className="step-text">
+        <h3>{title}</h3>
+        <p>{children}</p>
+      </div>
+      <div className="step-art" style={artStyle}>
+        {art}
+      </div>
+    </article>
+  )
+}
+
+function Term({ bar, children }: { bar?: string; children: ReactNode }) {
+  return (
+    <div className="term" style={{ width: '100%' }}>
+      {bar !== undefined && (
+        <div className="term-bar" aria-hidden="true">
+          <span className="dots">
+            <i />
+            <i />
+            <i />
+          </span>
+          <span>{bar}</span>
+        </div>
+      )}
+      <div className="term-body">{children}</div>
     </div>
   )
 }
 
-function ModelArt() {
-  return (
-    <div className="art-stack">
-      <div className="chip-row">
-        <span className="s-chip">OpenAI</span>
-        <span className="s-chip">Anthropic</span>
-        <span className="s-chip">Ollama</span>
-      </div>
-      <div className="chip-row">
-        <span className="s-chip">Any OpenAI-compatible API</span>
-      </div>
-      <span className="s-badge">
-        <KeyRound size={14} strokeWidth={1.7} aria-hidden="true" />
-        Keys live in your OS keychain
-      </span>
-    </div>
-  )
-}
+const Prompt = () => <span className="t-dim">$</span>
 
-function ChannelArt() {
-  const channels = [
-    { icon: SquareTerminal, name: 'Terminal', note: `${site.command} chat` },
-    { icon: Globe, name: 'Local web page', note: 'Chat, approvals, runs, memory' },
-    { icon: Send, name: 'Telegram', note: 'Paired with a code, approvals as buttons' },
-  ]
+type Item = { label: string; brand?: BrandName; icon?: IconName }
+
+function LogoRow({ items }: { items: Item[] }) {
   return (
-    <ul className="art-stack" style={{ margin: 0, padding: 0, listStyle: 'none' }}>
-      {channels.map(({ icon: Icon, name, note }) => (
-        <li key={name} className="channel-card s-glass">
-          <span className="channel-ic">
-            <Icon size={18} strokeWidth={1.7} aria-hidden="true" />
+    <div className="logos">
+      {items.map((it) => (
+        <span key={it.label} className="logo-item">
+          <span className="tile tile--lg">
+            {it.brand ? <Logo name={it.brand} size={32} /> : <Icon name={it.icon!} size={32} />}
           </span>
-          <span>
-            <b>{name}</b>
-            <small>{note}</small>
-          </span>
-        </li>
+          {it.label}
+        </span>
       ))}
-    </ul>
+    </div>
   )
 }
+
+const APPS: BrandName[] = ['gmail', 'gcal', 'slack', 'github', 'notion', 'drive']
 
 export function HowItWorks() {
+  const cmd = site.command
   return (
-    <section className="l-sec" id="how" aria-labelledby="how-title">
-      <div className="l-wrap">
-        <Reveal className="l-head">
-          <p className="s-eyebrow">How it works</p>
-          <h2 id="how-title" className="l-h2">
-            Three steps to <em>your own agent</em>
+    <section className="sec" id="how" aria-labelledby="how-title">
+      <div className="wrap">
+        <div className="head">
+          <p className="eyebrow">How it works</p>
+          <h2 id="how-title" className="h2">
+            Four steps to <em>your own agent</em>
           </h2>
-        </Reveal>
-        <div className="s-how">
-          <Reveal as="article" className="s-how-step s-panel">
-            <div className="s-how-text">
-              <h3>Install it</h3>
-              <p>One command with uv or pipx. You need macOS or Linux and Python 3.12 or newer.</p>
-            </div>
-            <div className="s-how-art s-photo-blur">
-              <InstallArt />
-            </div>
-          </Reveal>
-          <Reveal as="article" className="s-how-step s-how-step--flip s-panel">
-            <div className="s-how-text">
-              <h3>Bring a model</h3>
-              <p>
-                Use an OpenAI or Anthropic key, kept in your OS keychain, or a free local model through Ollama.{' '}
-                <code>{site.command} onboard</code> walks you through it.
-              </p>
-            </div>
-            <div className="s-how-art s-photo-blur">
-              <ModelArt />
-            </div>
-          </Reveal>
-          <Reveal as="article" className="s-how-step s-panel">
-            <div className="s-how-text">
-              <h3>Talk to it</h3>
-              <p>
-                Chat in the terminal, open the local web page, or pair Telegram with a code. Turn on the
-                background service and schedules run with the terminal closed.
-              </p>
-            </div>
-            <div className="s-how-art s-photo-blur">
-              <ChannelArt />
-            </div>
-          </Reveal>
+        </div>
+        <div className="how">
+          <Step
+            title="Install it"
+            art={
+              <Term bar="~">
+                <span className="tl"><Prompt /> {site.install}</span>
+                <span className="tl"><Prompt /> {cmd} onboard</span>
+                <span className="tl t-dim">  model, search, Telegram, background service</span>
+                <span className="tl"><Prompt /> {cmd} doctor</span>
+                <span className="tl"><span className="t-ok">✓</span> All good. Try: {cmd} chat</span>
+              </Term>
+            }
+          >
+            One command with uv or pipx, then <code>{cmd} onboard</code> sets up the rest. <code>doctor</code> checks it
+            and tells you how to fix anything wrong, <code>audit</code> checks it against the security rules,{' '}
+            <code>update</code> upgrades it. macOS or Linux, Python 3.12+.
+            {site.inDevelopment && ' Not on PyPI yet: this is the command for the first release.'}
+          </Step>
+
+          <Step
+            flip
+            title="Bring a model"
+            art={
+              <LogoRow
+                items={[
+                  { label: 'OpenAI', brand: 'openai' },
+                  { label: 'Anthropic', brand: 'anthropic' },
+                  { label: 'Ollama', brand: 'ollama' },
+                ]}
+              />
+            }
+          >
+            An OpenAI or Anthropic key, kept in your OS keychain, or a free local model through Ollama. Web search comes
+            with it: your model provider’s own, no extra key. SerpAPI if you want Google.
+          </Step>
+
+          <Step
+            title="Talk to it"
+            art={
+              <LogoRow
+                items={[
+                  { label: 'Terminal', icon: 'term' },
+                  { label: 'Web page', icon: 'globe' },
+                  { label: 'Telegram', brand: 'telegram' },
+                ]}
+              />
+            }
+          >
+            Chat in the terminal, open the local web page, or pair your Telegram bot with a code. The background service
+            (<code>{cmd} daemon</code>) keeps schedules and reminders firing with the terminal closed.
+          </Step>
+
+          <Step
+            flip
+            title="Connect your tools"
+            artStyle={{ flexDirection: 'column', gap: 18, alignItems: 'stretch' }}
+            art={
+              <>
+                <div className="app-row" aria-hidden="true">
+                  {APPS.map((b) => (
+                    <span key={b} className="tile">
+                      <Logo name={b} />
+                    </span>
+                  ))}
+                </div>
+                <Term>
+                  <span className="tl"><Prompt /> {cmd} mcp add gmail --provides email \</span>
+                  <span className="tl">    --env GMAIL_TOKEN -- &lt;command&gt;</span>
+                  <span className="tl t-dim">  Added gmail, providing email.</span>
+                  <span className="tl"><Prompt /> {cmd} mcp tools gmail</span>
+                  <span className="tl"><span className="t-dim">  search_emails  </span><span className="t-ok">read-only</span></span>
+                  <span className="tl"><span className="t-dim">  send_email     </span><span className="t-ask">asks</span></span>
+                </Term>
+              </>
+            }
+          >
+            Gmail, your calendar, anything with an MCP server. Add it with one command; its keys go to your keychain and
+            only to that server. Reads run freely. Anything else asks first, until you mark it “always allow.”
+          </Step>
         </div>
       </div>
     </section>

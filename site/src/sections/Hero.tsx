@@ -1,76 +1,73 @@
-import { ArrowRight } from 'lucide-react'
-import { site } from '../config'
-import { GithubIcon, Mark } from '../components/icons'
+import { GithubLink } from '../components/GithubLink'
+import { GridPulse } from '../components/GridPulse'
+import { Icon, Mark } from '../components/icons'
 import { InstallPill } from '../components/InstallPill'
+import { site } from '../config'
 
-const navLinks = [
-  { href: '#what', label: 'What it does' },
-  { href: '#how', label: 'How it works' },
-  { href: '#machine', label: 'Your machine' },
-  { href: '#faq', label: 'FAQ' },
+const NAV = [
+  ['#what', 'What it does'],
+  ['#uses', 'Use cases'],
+  ['#how', 'How it works'],
+  ['#differ', 'Where we differ'],
+  ['#faq', 'FAQ'],
 ]
 
 export function Hero() {
-  const getStarted = site.readmeUrl ?? '#how'
   return (
-    <section className="l-hero" aria-labelledby="hero-title">
-      <header className="s-nav s-glass">
-        <a href="#top" className="s-logo">
-          <Mark />
-          {site.name}
-        </a>
-        <nav aria-label="Main" className="s-nav-links">
-          {navLinks.map((l) => (
-            <a key={l.href} href={l.href} className="s-nav-btn">
-              {l.label}
-            </a>
-          ))}
-        </nav>
-        <div className="s-nav-end">
-          {site.githubUrl && (
-            <a className="s-btn s-btn--glass s-btn--sm" href={site.githubUrl} aria-label="GitHub">
-              <GithubIcon />
-              <span className="nav-gh-label">GitHub</span>
-            </a>
-          )}
-          <a className="s-btn s-btn--white s-btn--sm" href={getStarted}>
-            Get started
+    <section className="hero" aria-labelledby="hero-title">
+      <GridPulse />
+      <div className="wrap">
+        <header className="nav glass">
+          <a href="#top" className="brand">
+            <Mark />
+            {site.name}
           </a>
-        </div>
-      </header>
-
-      <div className="l-hero-in">
-        <p className="s-eyebrow s-bf">Open source · Runs on your machine</p>
-        <h1 id="hero-title" className="s-display s-bf s-bf1">
-          An AI agent that lives
-          <br />
-          <em>on your computer.</em>
-        </h1>
-        <p className="s-lead s-bf s-bf2">
-          Install it with one command, bring your own model, and talk to it from the terminal, a local web
-          page or Telegram. It remembers you in plain files on your disk and asks before it does anything
-          that matters.
-        </p>
-        {site.inDevelopment && (
-          <span className="s-badge s-bf s-bf2">
-            <span className="s-sdot s-sdot--busy" aria-hidden="true" />
-            In development · not released yet
-          </span>
-        )}
-        <div className="s-bf s-bf3" style={{ maxWidth: '100%' }}>
+          <nav aria-label="Main" className="nav-links">
+            {NAV.map(([href, label]) => (
+              <a key={href} href={href}>
+                {label}
+              </a>
+            ))}
+          </nav>
+          <div className="nav-end">
+            <GithubLink className="btn btn--glass btn--sm" href={site.githubUrl}>
+              GitHub
+            </GithubLink>
+            <a className="btn btn--white btn--sm" href="#how">
+              Get started
+            </a>
+          </div>
+        </header>
+        <div className="hero-in">
+          <p className="hero-eyebrow guard" data-grid-avoid="">
+            Open source · Runs on your machine
+          </p>
+          <h1 id="hero-title" className="display guard" data-grid-avoid="">
+            The AI agent that
+            <br />
+            <em>does the work.</em>
+          </h1>
+          <p className="lead guard" data-grid-avoid="">
+            Searches the web, reads your PDFs, turns a voice note into a reminder. Connect your apps and it briefs you
+            every morning, triages your inbox and preps your meetings. Talk to it from the terminal, a local web page or
+            Telegram.
+          </p>
+          {site.inDevelopment && (
+            <span className="badge glass">
+              <span className="dot" aria-hidden="true" />
+              In development · not released yet
+            </span>
+          )}
           <InstallPill />
-        </div>
-        <div className="hero-ctas s-bf s-bf4">
-          <a className="s-btn s-btn--white" href={getStarted}>
-            Get started
-            <ArrowRight size={16} strokeWidth={1.7} />
-          </a>
-          {site.githubUrl && (
-            <a className="s-btn s-btn--glass" href={site.githubUrl}>
-              <GithubIcon />
-              View on GitHub
+          <div className="ctas">
+            <a className="btn btn--white" href="#how">
+              Get started
+              <Icon name="arrow" />
             </a>
-          )}
+            <GithubLink className="btn btn--glass" href={site.githubUrl}>
+              View on GitHub
+            </GithubLink>
+          </div>
         </div>
       </div>
     </section>

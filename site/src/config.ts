@@ -10,7 +10,8 @@ export const site = {
   stateDir: '~/.local-agent',
   githubUrl,
   readmeUrl: githubUrl ? `${githubUrl}#readme` : null,
-  planUrl: githubUrl ? `${githubUrl}/blob/main/PLAN.md` : null,
+  issuesUrl: githubUrl ? `${githubUrl}/issues` : null,
+  licenseUrl: githubUrl ? `${githubUrl}/blob/main/LICENSE` : null,
   /** While true, the page says the project isn't released yet. Flip to false at the first release. */
   inDevelopment: true,
   year: 2026,
