@@ -46,12 +46,17 @@ a{color:#fff}a:hover{color:#E9ECF1}
 
 /* Moving grid behind everything below the hero: it drifts, it never follows the pointer. */
 .flow{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
-.flow-lines,.flow-lit{position:absolute;inset:-96px;background-image:linear-gradient(to right,var(--c) 1px,transparent 1px),linear-gradient(to bottom,var(--c) 1px,transparent 1px);background-size:48px 48px;animation:flowgrid 24s linear infinite}
+.flow-lines,.flow-lit{position:absolute;inset:-96px;will-change:transform;background-image:linear-gradient(to right,var(--c) 1px,transparent 1px),linear-gradient(to bottom,var(--c) 1px,transparent 1px);background-size:48px 48px;animation:flowgrid 24s linear infinite}
 .flow-lines{--c:rgba(255,255,255,.045)}
-.flow-lit{--c:rgba(150,190,255,.32);-webkit-mask-image:radial-gradient(420px 320px at 20% 30%,#000,transparent 70%),radial-gradient(520px 380px at 80% 60%,#000,transparent 70%),radial-gradient(380px 300px at 40% 85%,#000,transparent 70%);mask-image:radial-gradient(420px 320px at 20% 30%,#000,transparent 70%),radial-gradient(520px 380px at 80% 60%,#000,transparent 70%),radial-gradient(380px 300px at 40% 85%,#000,transparent 70%);-webkit-mask-size:100% 1400px;mask-size:100% 1400px;animation:flowgrid 24s linear infinite,flowglow 40s ease-in-out infinite alternate}
+.flow-lit{--c:rgba(150,190,255,.32)}
+/* Glow patches: a fixed mask on .flow-glow, moved by transform (GPU-only), with the grid counter-moved inside so its
+   lines stay on the base grid. Animating mask-position instead repaints the whole masked layer every frame. */
+.flow-glow{position:absolute;left:0;right:0;top:-1400px;bottom:0;-webkit-mask-image:radial-gradient(420px 320px at 20% 30%,#000,transparent 70%),radial-gradient(520px 380px at 80% 60%,#000,transparent 70%),radial-gradient(380px 300px at 40% 85%,#000,transparent 70%);mask-image:radial-gradient(420px 320px at 20% 30%,#000,transparent 70%),radial-gradient(520px 380px at 80% 60%,#000,transparent 70%),radial-gradient(380px 300px at 40% 85%,#000,transparent 70%);-webkit-mask-size:100% 1400px;mask-size:100% 1400px;animation:flowglow 40s ease-in-out infinite alternate;will-change:transform}
+.flow-glow-in{position:absolute;inset:1400px 0 0;animation:flowglow-back 40s ease-in-out infinite alternate;will-change:transform}
 .flow-tint{position:absolute;inset:0;background:radial-gradient(900px 600px at 85% 12%,rgba(91,74,200,.16),transparent 70%),radial-gradient(800px 600px at 10% 55%,rgba(40,120,150,.13),transparent 70%),radial-gradient(900px 700px at 70% 92%,rgba(200,70,140,.1),transparent 70%)}
 @keyframes flowgrid{to{transform:translate(48px,48px)}}
-@keyframes flowglow{0%{-webkit-mask-position:0 0;mask-position:0 0}100%{-webkit-mask-position:0 1400px;mask-position:0 1400px}}
+@keyframes flowglow{to{transform:translateY(1400px)}}
+@keyframes flowglow-back{to{transform:translateY(-1400px)}}
 .below{position:relative}
 .below>*:not(.flow){position:relative;z-index:1}
 
@@ -239,7 +244,7 @@ a{color:#fff}a:hover{color:#E9ECF1}
 .sq-vis{container-type:size;padding:12px}
 .sq-vis .flow-box{width:min(100cqw,153.8cqh)}
 }}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.flow-lines,.flow-lit,.w-run,.integ-ring{animation:none}.sq-item,.plus{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.flow-lines,.flow-lit,.flow-glow,.flow-glow-in,.w-run,.integ-ring{animation:none}.sq-item,.plus{transition:none}}
 @media (max-width:960px){
 .bento{grid-template-columns:repeat(2,minmax(0,1fr))}
 .c2,.c3,.c4{grid-column:span 2}

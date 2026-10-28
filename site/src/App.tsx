@@ -22,7 +22,12 @@ export default function App() {
         <div className="flow" aria-hidden="true">
           <div className="flow-tint" />
           <div className="flow-lines" />
-          <div className="flow-lit" />
+          {/* The glow patches move with transforms only: the mask travels down while the grid inside travels back up. */}
+          <div className="flow-glow">
+            <div className="flow-glow-in">
+              <div className="flow-lit" />
+            </div>
+          </div>
         </div>
         <main id="main">
           <TerminalShot />
