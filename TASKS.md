@@ -111,20 +111,20 @@ options note only; tailscale serve; two judges (gpt-4o + Claude); heartbeat neve
 | Task | Owner | Status | Commit |
 |---|---|---|---|
 | Seams: model_for, run() options, marked blocks, namespaced migrations, periodic hook | seams | checked | e385534 |
-| Contract notes (security, efficiency, reach, capabilities, evals) | each worker | todo | |
+| Contract notes (security, efficiency, reach, capabilities, evals) | each worker | sent | (security, efficiency, reach approved) |
 | Owner decisions batch (sandbox, WhatsApp, remote access, judge, heartbeat writes) | owner | checked | (2026-10-29) |
-| S1 Review queue | security | todo | |
-| S2 Third-party memory writes go to review (builds on the notes' trust labels) | security | todo | |
-| S3 MCP tool pinning (hash at approval, re-ask on change, no loosening) | security | todo | |
-| S5 Audit rules (pinning, review queue, remote access; sandbox when it lands) | security | todo | |
-| E1 Token breakdown (runs tokens) on scripted runs; the Claude/gpt-4o gap waits for paid logs | efficiency | todo | |
-| E2 Prompt caching: stable prefix, cache_control, cache tokens in events and budgets | efficiency | todo | |
-| E3 Model per purpose ([models] config) | efficiency | todo | |
-| E4 Spill big tool output to files (redacted, taint kept) | efficiency | todo | |
-| R1 Channel interface out of Telegram (no behavior change) | reach | todo | |
-| R2 WhatsApp options note (no build this phase) | reach | todo | |
-| R3 Remote access via tailscale serve, allowed_hosts | reach | todo | |
-| R4 Daemon log rotation | reach | todo | |
+| S1 Review queue | security | checked | f1f64af |
+| S2 Third-party memory writes go to review (builds on the notes' trust labels) | security | checked | f1f64af |
+| S3 MCP tool pinning (hash at approval, re-ask on change, no loosening) | security | sent | |
+| S5 Audit rules (pinning, review queue, remote access; sandbox when it lands) | security | sent | |
+| E1 Token breakdown (runs tokens) on scripted runs; the Claude/gpt-4o gap waits for paid logs | efficiency | sent | |
+| E2 Prompt caching: stable prefix, cache_control, cache tokens in events and budgets | efficiency | sent | |
+| E3 Model per purpose ([models] config) | efficiency | sent | |
+| E4 Spill big tool output to files (redacted, taint kept) | efficiency | sent | |
+| R1 Channel interface out of Telegram (no behavior change) | reach | sent | |
+| R2 WhatsApp options note (no build this phase) | reach | sent | |
+| R3 Remote access via tailscale serve, allowed_hosts | reach | sent | |
+| R4 Daemon log rotation | reach | sent | |
 | C1 Browser tool behind the egress guard | capabilities | todo | |
 | C2 Subagents (delegate): own context, shared budget, taint both ways, depth 1 | capabilities | todo | |
 | C3 Skill proposals moved onto the review queue (old routes keep working) | capabilities | todo | |
