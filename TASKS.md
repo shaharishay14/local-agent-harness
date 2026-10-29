@@ -101,3 +101,39 @@ Not started. Broken into tasks when Phase 6 is checked.
 
 - Run inspector UI in `frontend/` (site worker): port agent-studio's inspector to React and show a run's
   timeline from the recorded runs in `tests/core/runs/`. Can start before Phase 5; the owner chose to wait.
+
+## Phase 9: closing the gap (OpenClaw, Hermes)
+
+Plan approved 2026-10-29: 3 workers at a time. Wave 0 seams; wave 1 security, efficiency, reach; wave 2 capabilities,
+evals, then sandbox (optional, owner asked first). Owner decisions: Docker-only sandbox, never unattended; WhatsApp
+options note only; tailscale serve; two judges (gpt-4o + Claude); heartbeat never writes.
+
+| Task | Owner | Status | Commit |
+|---|---|---|---|
+| Seams: model_for, run() options, marked blocks, namespaced migrations, periodic hook | seams | sent | |
+| Contract notes (security, efficiency, reach, capabilities, evals) | each worker | todo | |
+| Owner decisions batch (sandbox, WhatsApp, remote access, judge, heartbeat writes) | owner | checked | (2026-10-29) |
+| S1 Review queue | security | todo | |
+| S2 Third-party memory writes go to review (builds on the notes' trust labels) | security | todo | |
+| S3 MCP tool pinning (hash at approval, re-ask on change, no loosening) | security | todo | |
+| S5 Audit rules (pinning, review queue, remote access; sandbox when it lands) | security | todo | |
+| E1 Token breakdown (runs tokens) on scripted runs; the Claude/gpt-4o gap waits for paid logs | efficiency | todo | |
+| E2 Prompt caching: stable prefix, cache_control, cache tokens in events and budgets | efficiency | todo | |
+| E3 Model per purpose ([models] config) | efficiency | todo | |
+| E4 Spill big tool output to files (redacted, taint kept) | efficiency | todo | |
+| R1 Channel interface out of Telegram (no behavior change) | reach | todo | |
+| R2 WhatsApp options note (no build this phase) | reach | todo | |
+| R3 Remote access via tailscale serve, allowed_hosts | reach | todo | |
+| R4 Daemon log rotation | reach | todo | |
+| C1 Browser tool behind the egress guard | capabilities | todo | |
+| C2 Subagents (delegate): own context, shared budget, taint both ways, depth 1 | capabilities | todo | |
+| C3 Skill proposals moved onto the review queue (old routes keep working) | capabilities | todo | |
+| C4 Heartbeat: periodic, read-only, quiet hours, off by default | capabilities | todo | |
+| V1 Repeated runs (--runs N, pass k/N) | evals | todo | |
+| V2 Two judges (gpt-4o + Claude), agreement in the table | evals | todo | |
+| V3 Ollama eval path (scripted fake server) | evals | todo | |
+| V4 Empty-result reminder + cloudhost regression test | evals | todo | |
+| V5 New eval tasks for S2, S3, C1, C2, C4, E4 (R2 after WhatsApp is decided) | evals | todo | |
+| S4 Docker sandbox for shell and stdio MCP (optional, owner asked first) | sandbox | todo | |
+| Paid eval run with the new table (incl. Ollama column) | owner | todo | |
+| README and PLAN update for Phase 9 | PM | todo | |
