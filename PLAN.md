@@ -214,10 +214,24 @@ Linux), README, LICENSE.
   answers only its paired owner (`answer_strangers` removed), runs ask for token usage so Anthropic streams count
   toward budgets, and every Runtime turns off the Agents SDK's trace upload.
 
+**Phase 9: Closing the gap with OpenClaw and Hermes.**
+- Seams first (model per purpose, run options, marked blocks per worker, module migrations, periodic jobs, a
+  tool-result hook), then five areas in parallel: security, efficiency, reach, capabilities, evals.
+- As built: a review queue (`local-agent review`, API) that third-party memory writes, agent-proposed skills and
+  changed MCP tools go through; the owner's own words still save directly. MCP tools are pinned by a hash of their
+  definition: a change re-asks and never loosens the tier. `audit` checks pins, the store's permissions (600) and
+  remote hosts. A token breakdown (`runs tokens`), a byte-identical prompt prefix with Anthropic cache marks,
+  `[models]` per purpose, and big tool output spilled to redacted files. A channel interface under Telegram,
+  remote access through `tailscale serve` (API still on 127.0.0.1, token required), daemon log rotation, and a
+  WhatsApp options note (not built). A Playwright browser behind the egress guard, `delegate` subagents (depth 1,
+  shared budget, taint both ways), and a read-only heartbeat; all three off by default. Evals: `--runs N`, two judges
+  (both must pass), an offline Ollama path, an empty-result reminder, six new tasks proven to fail without their
+  feature. Not done: the Docker sandbox (optional, owner's call), screenshots to the model, the paid table.
+
 ## Not now
 
-Other channels (WhatsApp, iMessage, Slack), mobile apps, voice, a skill marketplace, multiple agents,
-Windows, a Docker sandbox for the shell. Each is a later decision, not a gap in the design.
+Other channels (iMessage, Slack; WhatsApp has an options note), mobile apps, voice, a skill marketplace, a team of
+agents (subagents are depth 1), Windows. Each is a later decision, not a gap in the design.
 
 ## Open questions
 

@@ -130,11 +130,11 @@ options note only; tailscale serve; two judges (gpt-4o + Claude); heartbeat neve
 | C2 Subagents (delegate): own context, shared budget, taint both ways, depth 1 | capabilities | checked | f6edc3d |
 | C3 Skill proposals moved onto the review queue (old routes keep working) | capabilities | checked | f6edc3d |
 | C4 Heartbeat: periodic, read-only, quiet hours, off by default | capabilities | checked | f6edc3d |
-| V1 Repeated runs (--runs N, pass k/N) | evals | sent | |
-| V2 Two judges (gpt-4o + Claude), agreement in the table | evals | sent | |
-| V3 Ollama eval path (scripted fake server) | evals | sent | |
-| V4 Empty-result reminder + cloudhost regression test | evals | sent | |
-| V5 New eval tasks for S2, S3, C1, C2, C4, E4 (R2 after WhatsApp is decided) | evals | sent | |
+| V1 Repeated runs (--runs N, pass k/N) | evals | checked | 4c20bcd |
+| V2 Two judges (gpt-4o + Claude), agreement in the table | evals | checked | 4c20bcd |
+| V3 Ollama eval path (scripted fake server) | evals | checked | 4c20bcd |
+| V4 Empty-result reminder + cloudhost regression test | evals | checked | 4c20bcd |
+| V5 New eval tasks for S2, S3, C1, C2, C4, E4 (R2 after WhatsApp is decided) | evals | checked | 4c20bcd |
 | S4 Docker sandbox for shell and stdio MCP (optional, owner asked first) | sandbox | todo | |
 | Paid eval run with the new table (incl. Ollama column) | owner | todo | |
-| README and PLAN update for Phase 9 | PM | todo | |
+| README and PLAN update for Phase 9 | PM | checked | (this commit) |
