@@ -111,24 +111,24 @@ options note only; tailscale serve; two judges (gpt-4o + Claude); heartbeat neve
 | Task | Owner | Status | Commit |
 |---|---|---|---|
 | Seams: model_for, run() options, marked blocks, namespaced migrations, periodic hook | seams | checked | e385534 |
-| Contract notes (security, efficiency, reach, capabilities, evals) | each worker | sent | (security, efficiency, reach approved) |
+| Contract notes (security, efficiency, reach, capabilities, evals) | each worker | sent | (security, efficiency, reach, capabilities approved) |
 | Owner decisions batch (sandbox, WhatsApp, remote access, judge, heartbeat writes) | owner | checked | (2026-10-29) |
 | S1 Review queue | security | checked | f1f64af |
 | S2 Third-party memory writes go to review (builds on the notes' trust labels) | security | checked | f1f64af |
-| S3 MCP tool pinning (hash at approval, re-ask on change, no loosening) | security | sent | |
-| S5 Audit rules (pinning, review queue, remote access; sandbox when it lands) | security | sent | |
-| E1 Token breakdown (runs tokens) on scripted runs; the Claude/gpt-4o gap waits for paid logs | efficiency | sent | |
-| E2 Prompt caching: stable prefix, cache_control, cache tokens in events and budgets | efficiency | sent | |
-| E3 Model per purpose ([models] config) | efficiency | sent | |
-| E4 Spill big tool output to files (redacted, taint kept) | efficiency | sent | |
-| R1 Channel interface out of Telegram (no behavior change) | reach | sent | |
-| R2 WhatsApp options note (no build this phase) | reach | sent | |
-| R3 Remote access via tailscale serve, allowed_hosts | reach | sent | |
-| R4 Daemon log rotation | reach | sent | |
-| C1 Browser tool behind the egress guard | capabilities | todo | |
-| C2 Subagents (delegate): own context, shared budget, taint both ways, depth 1 | capabilities | todo | |
-| C3 Skill proposals moved onto the review queue (old routes keep working) | capabilities | todo | |
-| C4 Heartbeat: periodic, read-only, quiet hours, off by default | capabilities | todo | |
+| S3 MCP tool pinning (hash at approval, re-ask on change, no loosening) | security | checked | d6c5a63 |
+| S5 Audit rules (pinning, review queue, remote access; sandbox when it lands) | security | checked | d6c5a63 |
+| E1 Token breakdown (runs tokens) on scripted runs; the Claude/gpt-4o gap waits for paid logs | efficiency | checked | 0b0a400 |
+| E2 Prompt caching: stable prefix, cache_control, cache tokens in events and budgets | efficiency | checked | 0b0a400 |
+| E3 Model per purpose ([models] config) | efficiency | checked | 0b0a400 |
+| E4 Spill big tool output to files (redacted, taint kept) | efficiency | checked | 0b0a400 |
+| R1 Channel interface out of Telegram (no behavior change) | reach | checked | 5f28e8b |
+| R2 WhatsApp options note (no build this phase) | reach | checked | 5f28e8b |
+| R3 Remote access via tailscale serve, allowed_hosts | reach | checked | 5f28e8b |
+| R4 Daemon log rotation | reach | checked | 5f28e8b |
+| C1 Browser tool behind the egress guard | capabilities | sent | |
+| C2 Subagents (delegate): own context, shared budget, taint both ways, depth 1 | capabilities | sent | |
+| C3 Skill proposals moved onto the review queue (old routes keep working) | capabilities | sent | |
+| C4 Heartbeat: periodic, read-only, quiet hours, off by default | capabilities | sent | |
 | V1 Repeated runs (--runs N, pass k/N) | evals | todo | |
 | V2 Two judges (gpt-4o + Claude), agreement in the table | evals | todo | |
 | V3 Ollama eval path (scripted fake server) | evals | todo | |
