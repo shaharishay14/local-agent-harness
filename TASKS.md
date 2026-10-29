@@ -111,8 +111,9 @@ options note only; tailscale serve; two judges (gpt-4o + Claude); heartbeat neve
 | Task | Owner | Status | Commit |
 |---|---|---|---|
 | Seams: model_for, run() options, marked blocks, namespaced migrations, periodic hook | seams | checked | e385534 |
-| Contract notes (security, efficiency, reach, capabilities, evals) | each worker | sent | (security, efficiency, reach, capabilities approved) |
+| Contract notes (security, efficiency, reach, capabilities, evals) | each worker | checked | (all approved) |
 | Owner decisions batch (sandbox, WhatsApp, remote access, judge, heartbeat writes) | owner | checked | (2026-10-29) |
+| Owner's own words save directly in a tainted run (owner decision, wave 1 batch) | PM | checked | a536404 |
 | S1 Review queue | security | checked | f1f64af |
 | S2 Third-party memory writes go to review (builds on the notes' trust labels) | security | checked | f1f64af |
 | S3 MCP tool pinning (hash at approval, re-ask on change, no loosening) | security | checked | d6c5a63 |
@@ -125,15 +126,15 @@ options note only; tailscale serve; two judges (gpt-4o + Claude); heartbeat neve
 | R2 WhatsApp options note (no build this phase) | reach | checked | 5f28e8b |
 | R3 Remote access via tailscale serve, allowed_hosts | reach | checked | 5f28e8b |
 | R4 Daemon log rotation | reach | checked | 5f28e8b |
-| C1 Browser tool behind the egress guard | capabilities | sent | |
-| C2 Subagents (delegate): own context, shared budget, taint both ways, depth 1 | capabilities | sent | |
-| C3 Skill proposals moved onto the review queue (old routes keep working) | capabilities | sent | |
-| C4 Heartbeat: periodic, read-only, quiet hours, off by default | capabilities | sent | |
-| V1 Repeated runs (--runs N, pass k/N) | evals | todo | |
-| V2 Two judges (gpt-4o + Claude), agreement in the table | evals | todo | |
-| V3 Ollama eval path (scripted fake server) | evals | todo | |
-| V4 Empty-result reminder + cloudhost regression test | evals | todo | |
-| V5 New eval tasks for S2, S3, C1, C2, C4, E4 (R2 after WhatsApp is decided) | evals | todo | |
+| C1 Browser tool behind the egress guard | capabilities | checked | f6edc3d |
+| C2 Subagents (delegate): own context, shared budget, taint both ways, depth 1 | capabilities | checked | f6edc3d |
+| C3 Skill proposals moved onto the review queue (old routes keep working) | capabilities | checked | f6edc3d |
+| C4 Heartbeat: periodic, read-only, quiet hours, off by default | capabilities | checked | f6edc3d |
+| V1 Repeated runs (--runs N, pass k/N) | evals | sent | |
+| V2 Two judges (gpt-4o + Claude), agreement in the table | evals | sent | |
+| V3 Ollama eval path (scripted fake server) | evals | sent | |
+| V4 Empty-result reminder + cloudhost regression test | evals | sent | |
+| V5 New eval tasks for S2, S3, C1, C2, C4, E4 (R2 after WhatsApp is decided) | evals | sent | |
 | S4 Docker sandbox for shell and stdio MCP (optional, owner asked first) | sandbox | todo | |
 | Paid eval run with the new table (incl. Ollama column) | owner | todo | |
 | README and PLAN update for Phase 9 | PM | todo | |
