@@ -226,7 +226,8 @@ Linux), README, LICENSE.
   WhatsApp options note (not built). A Playwright browser behind the egress guard, `delegate` subagents (depth 1,
   shared budget, taint both ways), and a read-only heartbeat; all three off by default. Evals: `--runs N`, two judges
   (both must pass), an offline Ollama path, an empty-result reminder, six new tasks proven to fail without their
-  feature. Not done: the Docker sandbox (optional, owner's call), screenshots to the model, the paid table.
+  feature. An optional Docker sandbox for the shell and opted-in stdio MCP servers (off by default, never
+  unattended, audited). Not done: screenshots to the model, the paid table.
 
 ## Not now
 

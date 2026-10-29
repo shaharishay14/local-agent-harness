@@ -135,6 +135,6 @@ options note only; tailscale serve; two judges (gpt-4o + Claude); heartbeat neve
 | V3 Ollama eval path (scripted fake server) | evals | checked | 4c20bcd |
 | V4 Empty-result reminder + cloudhost regression test | evals | checked | 4c20bcd |
 | V5 New eval tasks for S2, S3, C1, C2, C4, E4 (R2 after WhatsApp is decided) | evals | checked | 4c20bcd |
-| S4 Docker sandbox for shell and stdio MCP (optional, owner asked first) | sandbox | todo | |
+| S4 Docker sandbox for shell and stdio MCP (optional, owner asked first) | sandbox | checked | b7148e6 |
 | Paid eval run with the new table (incl. Ollama column) | owner | todo | |
 | README and PLAN update for Phase 9 | PM | checked | (this commit) |
