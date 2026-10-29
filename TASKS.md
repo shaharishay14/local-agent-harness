@@ -110,7 +110,7 @@ options note only; tailscale serve; two judges (gpt-4o + Claude); heartbeat neve
 
 | Task | Owner | Status | Commit |
 |---|---|---|---|
-| Seams: model_for, run() options, marked blocks, namespaced migrations, periodic hook | seams | sent | |
+| Seams: model_for, run() options, marked blocks, namespaced migrations, periodic hook | seams | checked | e385534 |
 | Contract notes (security, efficiency, reach, capabilities, evals) | each worker | todo | |
 | Owner decisions batch (sandbox, WhatsApp, remote access, judge, heartbeat writes) | owner | checked | (2026-10-29) |
 | S1 Review queue | security | todo | |
